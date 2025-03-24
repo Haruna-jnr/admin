@@ -1,0 +1,21 @@
+{
+    "name": "pterodactyl-admin",
+    "version": "1.0.0",
+    "description": "A lightweight Pterodactyl admin panel for Termux",
+    "main": "index.js",
+    "scripts": {
+      "start": "node server.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+      "express": "^4.18.2"
+    },
+    "keywords": [
+      "pterodactyl",
+      "admin",
+      "panel",
+      "termux"
+    ],
+    "author": "Your Name",
+    "license": "MIT"
+  }

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pterodactyl Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-dragon"></i> Pterodactyl Admin</h1>
+            <div class="user-info">
+                <span id="username">Admin</span>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#servers"><i class="fas fa-server"></i> Servers</a></li>
+                <li><a href="#users"><i class="fas fa-users"></i> Users</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="dashboard" class="content-section active">
+                <h2>Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Active Servers</h3>
+                        <p id="active-servers">5</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Users</h3>
+                        <p id="total-users">12</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>System Load</h3>
+                        <p id="system-load">32%</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Memory Usage</h3>
+                        <p id="memory-usage">4.2/8 GB</p>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <ul id="activity-list">
+                        <!-- Will be populated by JS -->
+                    </ul>
+                </div>
+            </section>
+
+            <section id="servers" class="content-section">
+                <h2>Server Management</h2>
+                <div class="server-controls">
+                    <button id="create-server" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Create Server
+                    </button>
+                    <button id="refresh-servers" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+                <table id="servers-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Node</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Will be populated by JS -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="users" class="content-section">
+                <h2>User Management</h2>
+                <div class="user-controls">
+                    <button id="create-user" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> Add User
+                    </button>
+                </div>
+                <table id="users-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Will be populated by JS -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="settings" class="content-section">
+                <h2>Settings</h2>
+                <form id="settings-form">
+                    <div class="form-group">
+                        <label for="panel-url">Panel URL</label>
+                        <input type="text" id="panel-url" placeholder="https://panel.yoursite.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="api-key">API Key</label>
+                        <input type="password" id="api-key" placeholder="Your API Key">
+                    </div>
+                    <div class="form-group">
+                        <label for="theme">Theme</label>
+                        <select id="theme">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="blue">Blue</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Settings</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>Pterodactyl Admin Panel &copy; 2023 | Running on Termux</p>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="create-server-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Server</h2>
+            <form id="server-form">
+                <div class="form-group">
+                    <label for="server-name">Server Name</label>
+                    <input type="text" id="server-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="server-node">Node</label>
+                    <select id="server-node" required>
+                        <option value="node1">Node 1</option>
+                        <option value="node2">Node 2</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="server-egg">Egg</label>
+                    <select id="server-egg" required>
+                        <option value="minecraft">Minecraft</option>
+                        <option value="ark">ARK</option>
+                        <option value="csgo">CS:GO</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Server</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
